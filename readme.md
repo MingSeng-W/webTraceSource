@@ -7,11 +7,12 @@
 1.给定微博,首先判断改微博是否为转发的微博,如果是的话,那么就进行下一步的解析;如果不是的话,那么就丢弃
 判断微博是否为转发的算法:
     1判断用户的转发消息中是否有@,然后进行取舍
+
    try:
         next=div.contians('@')
         print "this is a repost weibo"
    except:
-         print ''
+         print 'this is a original weibo'
 
 2.分析微博的结构,找出weibo的id,现在转发weibo博主的id,用户名,爬取的上一个博主的id,用户名,最后再查出来源博主的微博.
 

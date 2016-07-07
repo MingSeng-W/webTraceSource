@@ -14,6 +14,8 @@ import rsa
 import binascii
 import time
 import cookielib
+reload(sys)
+sys.setdefaultencoding('utf-8')
 # 登陆微博
 class weiboLogin:
     header = {
@@ -50,6 +52,7 @@ class weiboLogin:
                 else:
                     password = line.strip()
         return username, password
+
     def get_login(self):
         passowrd_temp,vk,capId,logurl=self.get_page()
         code = raw_input("please input the code:")
@@ -87,11 +90,69 @@ class weiboLogin:
                 print e.reason
             if hasattr(e,'code'):
                 print e.code
+    def get_opener(self):
+        cj2=cookielib.MozillaCookieJar()
+        cj2.load('cookie.txt',ignore_discard=True,ignore_expires=True)
+        opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj2))
+        return opener
+
+
+    def get_user_uid(self, link):
+        opener = self.get_opener()
+        req=urllib2.Request(link,headers=self.header)
+        res = opener.open(req)
+        html = res.read()
+        view=re.findall('<script>FM.view\((.*?)\)<\/script>',html)
+        with open('view.html','w') as f:
+            for i in view:
+                r = i.encode('utf-8').decode('unicode_escape').encode('gbk')
+                s = r.replace("\/", "/")
+                f.write(s)
+        with open('view.html','r') as f:
+            newhtml=f.read()
+            print newhtml
+
+        # print bs4.BeautifulSoup(html,'lxml').find(attrs={'class':'btn_bed W_fl'})
+
+        # return re.findall('uid=(.*)&fnick',bs4.BeautifulSoup(html,'lxml').find(attrs={'class':'btn_bed W_fl'})['action-data'])[0]
+
     def get_user(self):
+        with open('weiboExample.html','r') as f:
+            temp=f.read()
+            html=bs4.BeautifulSoup(temp,'lxml')
+            useridtemp = html.find(attrs={'class':'WB_feed_type'})
+            userString=useridtemp['tbinfo']
+            userid=re.findall('ouid=(.*)&rouid',userString)[0]
+            usernameCon=html.find(attrs={'class':'WB_face'})
+            originalUsernameTemp=html.find(attrs={'class':'WB_row_line WB_row_r4 clearfix S_line2'})
+            originalUsername=re.findall('rootname=(.*)&rootuid',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
+            originalUid=re.findall('rootuid=(.*)&rooturl',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
+            originalLink=re.findall('rooturl=(.*)&url',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
+            username=usernameCon.find('a',attrs={"class":"W_face_radius"})["title"]
+            timeCon1=html.find_all(attrs={'node-type':'feed_list_item_date'})[0]
+            timeCon2=html.find_all(attrs={'node-type':'feed_list_item_date'})[1]
+            userLinkTemp=timeCon1['href']
+            weiboLink='http://weibo.com/'+re.findall('(.*\?)',userLinkTemp)[0]
+            showtime=timeCon1['title']
+            saveTime=timeCon1['date']
+            originalShowTime=timeCon2['title']
+            originalSaveTime=timeCon2['date']
+            print userid,username, showtime, saveTime,weiboLink
+
+            weiboParentArray=html.find_all(attrs={'extra-data':'type=atname'})
+            for item in weiboParentArray:
+                parentUsername=re.findall('name=(.*)',item['usercard'])[0]
+                parentLink=re.findall('(.*)\?',item['href'])[0]
+                print parentUsername,parentLink
+
+            print originalUid,originalUsername,originalShowTime,originalSaveTime, originalLink
+
+
+
 
 
 wb=weiboLogin()
-wb.get_login()
+wb.get_user()
 
 
 
