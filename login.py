@@ -14,8 +14,8 @@ import rsa
 import binascii
 import time
 import cookielib
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
+
 # 登陆微博
 class weiboLogin:
     header = {
@@ -78,13 +78,6 @@ class weiboLogin:
             opener = urllib2.build_opener(cookie_support)
             res=opener.open(req,data2)
             cookie.save(filename,ignore_discard=True,ignore_expires=True)
-            # cj2=cookielib.MozillaCookieJar()
-            # cj2.load('cookie.txt',ignore_discard=True,ignore_expires=True)
-            # opener2=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj2))
-            # req2=urllib2.Request('http://weibo.cn/?since_id=0&max_id=DDyTmzAV2&prev_page=1&page=2&vt=4',headers=self.header)
-            # res2=opener2.open(req2)
-            # html=res2.read()
-            # print html
         except URLError,e:
             if hasattr(e,'reason'):
                 print e.reason
@@ -115,6 +108,27 @@ class weiboLogin:
         # print bs4.BeautifulSoup(html,'lxml').find(attrs={'class':'btn_bed W_fl'})
 
         # return re.findall('uid=(.*)&fnick',bs4.BeautifulSoup(html,'lxml').find(attrs={'class':'btn_bed W_fl'})['action-data'])[0]
+    def get_repost(self,user_link):
+        opener=self.get_opener()
+        req=urllib2.Request(user_link,headers=self.header)
+        res=opener.open(req)
+        html=res.read()
+        with open('test.html', 'w') as f:
+            view = re.findall('<script>FM.view\((.*?)\)<\/script>', html)
+            for i in view:
+                try:
+                    r = i.encode('ascii').decode('unicode_escape').encode('utf8')
+                    s = r.replace("\/", "/")
+                    f.write(s)
+                    print s
+                except:
+                    # r = i.encode('utf8').decode('unicode_escape').encode('utf8')
+                    # s = r.replace("\/", "/")
+                    # # f.write(s)
+                    # print s
+                    pass
+
+
 
     def get_user(self):
         with open('weiboExample.html','r') as f:
@@ -152,7 +166,9 @@ class weiboLogin:
 
 
 wb=weiboLogin()
-wb.get_user()
+wb.get_repost('http://weibo.com/u/3178295512?profile_ftype=1&is_all=1#_0')
+
+
 
 
 

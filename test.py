@@ -45,7 +45,7 @@ class weiboCrawlser:
         url = 'http://s.weibo.com/weibo/'+keyword+'&page=' + str(pagenum)
         header = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',
-            'Cookie': 'SINAGLOBAL=7794664723802.307.1464800947011; _s_tentry=-; Apache=8258607474181.003.1467273666438; ULV=1467273666448:5:5:2:8258607474181.003.1467273666438:1467262664430; SWB=usrmdinst_14; NSC_wjq_txfjcp_mjotij=ffffffff094113d645525d5f4f58455e445a4a423660; UOR=www.liaoxuefeng.com,widget.weibo.com,www.baidu.com; appkey=; WBtopGlobal_register_version=c5a1a241471e96ea; SUB=_2A256cgCoDeTxGeNL7FUZ-CfJzT2IHXVZBnVgrDV8PUJbmtBeLWLEkW8g9LCVu3mmtEhqMNpCWlKRFm8QSA..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5MINdBKrimGBVg4AxBhZ3J5JpX5K2hUgL.Fo-fS0MR1h.fSo22dJLoI02LxK-LBKzLBKnLxK.L1K-L1-eLxK-L1K-LBKqLxK-L1K-LBKqLxK-L1K-LBKq_eh50; SUHB=0OMUZMcoeOe70z; SSOLoginState=1467379960; un=15520441791; WBStore=8ca40a3ef06ad7b2|undefined'
+            'Cookie': '_s_tentry=www.micmiu.com; Apache=2580452964109.3633.1468546273913; SINAGLOBAL=2580452964109.3633.1468546273913; ULV=1468546273941:1:1:1:2580452964109.3633.1468546273913:; SWB=usrmdinst_12; ALF=1471307009; SUB=_2A256jqBQDeTxGeNL7FUZ-CfJzT2IHXVWcMAYrDV8PUJbkNBeLUPykW1td6byhRAUKVh1YjwagX3FRd_sQg..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5MINdBKrimGBVg4AxBhZ3J5NHD95QfSKMN1hn4SKqpWs4Dqcjpi--fi-2Ei-2Ri--4iK.fiKLhi--fiK.fi-2ci--fiK.fi-2ci--fiK.fi-2cTK57e7tt; wvr=6; UOR=www.micmiu.com,widget.weibo.com,www.baidu.com; WBStore=8ca40a3ef06ad7b2|undefined'
         }
         req = urllib2.Request(url=url, headers=header)
         res = urllib2.urlopen(req)
@@ -53,9 +53,11 @@ class weiboCrawlser:
             html = res.read()
             view = re.findall('<script>STK && STK.pageletM && STK.pageletM.view\((.*?)\)<\/script>', html)
             for i in view:
-                r = i.encode('utf-8').decode('unicode_escape').encode('utf-8')
-                s = r.replace("\/", "/")
-                f.write(s)
+                # r = i.encode('utf-8').decode('unicode_escape').encode('utf-8')
+                # s = r.replace("\/", "/")
+                # f.write(s)
+                print i
+
 
         with open('test.html', 'r') as f2:
             newthml = f2.read()
@@ -124,6 +126,6 @@ keyword=raw_input("please in put the keyword:")
 wb = weiboCrawlser()
 for i in range(1, 7):
     wb.test(i,keyword)
-    time.sleep(10)
+    time.sleep(20)
 print 'finish all'
 
