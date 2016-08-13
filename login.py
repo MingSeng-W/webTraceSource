@@ -1,4 +1,4 @@
-# coding:utf-8
+#coding:utf-8
 import sys
 import re
 import bs4
@@ -14,12 +14,16 @@ import rsa
 import binascii
 import time
 import cookielib
+import json
+from dataStore import weiboLinkList
+from dataStore import weiboNode
 
 
-# 登陆微博
+
 class weiboLogin:
     header = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}
+    is_find=False
     def get_page(self):
         url = 'http://login.weibo.cn/login/'
         try:
@@ -40,6 +44,9 @@ class weiboLogin:
                 print  e.reason
             elif hasattr(e, 'code'):
                 print e.code
+
+
+
     def get_account(self):
         username = ""
         password = ""
@@ -83,6 +90,9 @@ class weiboLogin:
                 print e.reason
             if hasattr(e,'code'):
                 print e.code
+
+
+
     def get_opener(self):
         cj2=cookielib.MozillaCookieJar()
         cj2.load('cookie.txt',ignore_discard=True,ignore_expires=True)
@@ -90,83 +100,141 @@ class weiboLogin:
         return opener
 
 
+
+
+    def get_user_json(self,page,pagebar,_rnd,userid):
+        opener=self.get_opener()
+        url="http://weibo.com/p/aj/v6/mblog/mbloglist?ajwvr=6&domain=100505&is_search=0&visible=0&is_all=1&is_tag=0&profile_ftype=1&pl_name=Pl_Official_MyProfileFeed__24&domain_op=100505&page="+page+"&pagebar="+pagebar+"&id=100505"+userid+"&script_uri=/u/"+userid+"&pre_page="+page+"&__rnd="+_rnd
+
+
+    def get_mid_parse(self,omid,repost_list):
+        for repost_item in repost_list:
+            if int(repost_item['omid']) == int(omid):
+                wbDetail = repost_item.find(attrs={"class": "WB_detail"})
+                UserTemp = wbDetail.find(attrs={"node-type": "feed_list_item_date"})
+                weiboLink = "http://weibo.com" + re.findall("(.*)\?from", UserTemp["href"])[0]
+                weiboTime = UserTemp["title"]
+                weiboUnixTime = UserTemp["date"]
+                self.is_find = True
+                return weiboLink, weiboTime, weiboUnixTime
+            else:
+                pass
+    def search_mid(self,repost_list,omid,userid):
+        weiboLink,weiboTime,weiboUnixTime=self.get_mid_parse(repost_list=repost_list,omid=omid)
+        if self.is_find==False:
+            for i in range(10000):
+                page=i+1
+                for j in range(2):
+                    _rnd=j
+                    timestr = str(time.time())
+                    newtime = timestr.replace(".", "0")
+                    temp_repost_list=self.get_user_json(page=i,pagebar=j,_rnd=newtime)
+                    weiboLink, weiboTime, weiboUnixTime= self.get_mid_parse(omid=omid,repost_list=temp_repost_list)
+                    return weiboLink,weiboTime,weiboUnixTime
+
+        return weiboLink, weiboTime, weiboUnixTime
+
+
+
+
+
+
+
+
+
+
     def get_user_uid(self, link):
         opener = self.get_opener()
-        req=urllib2.Request(link,headers=self.header)
+        req = urllib2.Request(link, headers=self.header)
         res = opener.open(req)
         html = res.read()
-        view=re.findall('<script>FM.view\((.*?)\)<\/script>',html)
-        with open('view.html','w') as f:
+        # with open('userpage.html', 'w') as f:
+        #     view = re.findall('<script>FM.view\((.*?)\)<\/script>', html)
+        #     for i in view:
+        #         s = json.loads(i)
+        #         for b in s:
+        #             if (isinstance(s[b], list)):
+        #                 pass
+        #             else:
+        #                 f.write(s[b].encode('utf8'))
+        self.html_parser(html)
+        with open('test.html','r') as f2:
+            temp=f2.read()
+            temp_user_page=bs4.BeautifulSoup(temp,'lxml')
+            userid_con=temp_user_page.find(attrs={"node-type":"focusLink"})
+            userid=re.findall('uid=(.*?)&fnick',userid_con['action-data'])[0]
+            return userid
+
+    def html_parser(self,html):
+        with open('test.html', 'w') as f:
+            view = re.findall('<script>FM.view\((.*?)\)<\/script>', html)
             for i in view:
-                r = i.encode('utf-8').decode('unicode_escape').encode('gbk')
-                s = r.replace("\/", "/")
-                f.write(s)
-        with open('view.html','r') as f:
-            newhtml=f.read()
-            print newhtml
+                s = json.loads(i)
+                for b in s:
+                    if (isinstance(s[b], list)):
+                        pass
+                    else:
+                        f.write(s[b].encode('utf8'))
 
-        # print bs4.BeautifulSoup(html,'lxml').find(attrs={'class':'btn_bed W_fl'})
-
-        # return re.findall('uid=(.*)&fnick',bs4.BeautifulSoup(html,'lxml').find(attrs={'class':'btn_bed W_fl'})['action-data'])[0]
     def get_repost(self,user_link):
         opener=self.get_opener()
         req=urllib2.Request(user_link,headers=self.header)
         res=opener.open(req)
         html=res.read()
-        with open('test.html', 'w') as f:
-            view = re.findall('<script>FM.view\((.*?)\)<\/script>', html)
-            for i in view:
-                try:
-                    r = i.encode('ascii').decode('unicode_escape').encode('utf8')
-                    s = r.replace("\/", "/")
-                    f.write(s)
-                    print s
-                except:
-                    # r = i.encode('utf8').decode('unicode_escape').encode('utf8')
-                    # s = r.replace("\/", "/")
-                    # # f.write(s)
-                    # print s
-                    pass
-
-
-
-    def get_user(self):
-        with open('weiboExample.html','r') as f:
-            temp=f.read()
+        self.html_parser(html)
+        with open('test.html','r') as f1:
+            temp=f1.read()
             html=bs4.BeautifulSoup(temp,'lxml')
-            useridtemp = html.find(attrs={'class':'WB_feed_type'})
-            userString=useridtemp['tbinfo']
-            userid=re.findall('ouid=(.*)&rouid',userString)[0]
-            usernameCon=html.find(attrs={'class':'WB_face'})
-            originalUsernameTemp=html.find(attrs={'class':'WB_row_line WB_row_r4 clearfix S_line2'})
-            originalUsername=re.findall('rootname=(.*)&rootuid',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
-            originalUid=re.findall('rootuid=(.*)&rooturl',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
-            originalLink=re.findall('rooturl=(.*)&url',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
-            username=usernameCon.find('a',attrs={"class":"W_face_radius"})["title"]
-            timeCon1=html.find_all(attrs={'node-type':'feed_list_item_date'})[0]
-            timeCon2=html.find_all(attrs={'node-type':'feed_list_item_date'})[1]
-            userLinkTemp=timeCon1['href']
-            weiboLink='http://weibo.com/'+re.findall('(.*\?)',userLinkTemp)[0]
-            showtime=timeCon1['title']
-            saveTime=timeCon1['date']
-            originalShowTime=timeCon2['title']
-            originalSaveTime=timeCon2['date']
-            print userid,username, showtime, saveTime,weiboLink
+            repost_list=html.find_all(minfo=True)
+            return repost_list
+    def get_text(self,html):
+        text_content=html.find(attrs={"node-type":"feed_list_reason"})
+        text=text_content.get_text()
+        return text
 
-            weiboParentArray=html.find_all(attrs={'extra-data':'type=atname'})
-            for item in weiboParentArray:
-                parentUsername=re.findall('name=(.*)',item['usercard'])[0]
-                parentLink=re.findall('(.*)\?',item['href'])[0]
-                print parentUsername,parentLink
+    def get_user(self,link):
+            repost_list=self.get_repost(link)
+            for html in repost_list:
+                useridtemp = html
+                userString=useridtemp['tbinfo']
+                userid=re.findall('ouid=(.*)&rouid',userString)[0]
+                usernameCon=html.find(attrs={'class':'WB_face'})
+                originalUsernameTemp=html.find(attrs={'class':'WB_row_line WB_row_r4 clearfix S_line2'})
+                originalUsername=re.findall('rootname=(.*)&rootuid',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
+                originalUid=re.findall('rootuid=(.*)&rooturl',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
+                originalLink=re.findall('rooturl=(.*)&url',originalUsernameTemp.find_all('li')[1].find('a')['action-data'])[0]
+                username=usernameCon.find('a',attrs={"class":"W_face_radius"})["title"]
+                timeCon1=html.find_all(attrs={'node-type':'feed_list_item_date'})[0]
+                timeCon2=html.find_all(attrs={'node-type':'feed_list_item_date'})[1]
+                userLinkTemp=timeCon1['href']
+                weiboLink='http://weibo.com/'+re.findall('(.*\?)',userLinkTemp)[0]
+                showtime=timeCon1['title']
+                saveTime=timeCon1['date']
+                originalShowTime=timeCon2['title']
+                originalSaveTime=timeCon2['date']
 
-            print originalUid,originalUsername,originalShowTime,originalSaveTime, originalLink
+                # print userid,username, showtime, saveTime,weiboLink
+                linkList=weiboLinkList()
+                tempNode=weiboNode(id=userid,name=username,link=weiboLink)
+                tempNode.set_showTime(showtime=showtime)
+                tempNode.set_unixTimeStamp(saveTime)
 
 
+
+                weiboParentArray=html.find_all(attrs={'extra-data':'type=atname'})
+                for item in weiboParentArray:
+                    parentUsername=re.findall('name=(.*)',item['usercard'])[0]
+                    parentLink=re.findall('(.*)\?',item['href'])[0]
+                    parentUserId=self.get_user_uid(parentLink)
+                    print parentUserId,parentUsername,parentLink
+
+                print originalUid,originalUsername,originalShowTime,originalSaveTime, originalLink
+                print "***************************************************************************"
 
 
 
 wb=weiboLogin()
-wb.get_repost('http://weibo.com/u/3178295512?profile_ftype=1&is_all=1#_0')
+wb.get_user('http://weibo.com/u/3627189164?profile_ftype=1&is_all=1#_0')
 
 
 
