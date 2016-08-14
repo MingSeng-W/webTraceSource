@@ -188,7 +188,6 @@ class weiboLogin:
             temp=f1.read()
 
             html=bs4.BeautifulSoup(temp,'lxml',from_encoding="utf-8")
-            print html
             repost_list=html.find_all(minfo=True)
             return repost_list
     def get_text(self,html):
@@ -217,11 +216,14 @@ class weiboLogin:
                 originalShowTime=timeCon2['title']
                 originalSaveTime=timeCon2['date']
 
-                print userid,username, showtime, saveTime,weiboLink
+                # print userid,username, showtime, saveTime,weiboLink
                 linkList=weiboLinkList()
                 tempNode=weiboNode(id=userid,name=username,link=weiboLink)
                 tempNode.set_showTime(showtime=showtime)
                 tempNode.set_unixTimeStamp(saveTime)
+                linkList.append(tempNode)
+
+
 
 
                 weiboParentArray=html.find_all(attrs={'extra-data':'type=atname'})
@@ -229,9 +231,16 @@ class weiboLogin:
                     parentUsername=re.findall('name=(.*)',item['usercard'])[0]
                     parentLink=re.findall('(.*)\?',item['href'])[0]
                     parentUserId=self.get_user_uid(parentLink)
-                    print parentUserId,parentUsername,parentLink
+                    parentTempNode=weiboNode(parentUserId,parentUsername,parentLink)
+                    linkList.append(parentTempNode)
+                    # print parentUserId,parentUsername,parentLink
 
-                print originalUid,originalUsername,originalShowTime,originalSaveTime, originalLink
+                originalNode=weiboNode(originalUid,originalUsername,originalLink)
+                originalNode.set_showTime(originalShowTime)
+                originalNode.set_unixTimeStamp(originalSaveTime)
+                linkList.append(originalNode)
+                linkList.printAllLink()
+                # print originalUid,originalUsername,originalShowTime,originalSaveTime, originalLink
                 print "***************************************************************************"
 
 
