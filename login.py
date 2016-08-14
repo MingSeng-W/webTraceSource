@@ -20,6 +20,7 @@ from dataStore import weiboNode
 
 
 
+
 class weiboLogin:
     header = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}
@@ -174,7 +175,7 @@ class weiboLogin:
                     if (isinstance(s[b], list)):
                         pass
                     else:
-                        f.write(s[b].encode('utf8'))
+                        f.write(s[b].encode("utf8"))
 
     def get_repost(self,user_link):
         opener=self.get_opener()
@@ -183,8 +184,11 @@ class weiboLogin:
         html=res.read()
         self.html_parser(html)
         with open('test.html','r') as f1:
+
             temp=f1.read()
+
             html=bs4.BeautifulSoup(temp,'lxml')
+
             repost_list=html.find_all(minfo=True)
             return repost_list
     def get_text(self,html):
@@ -213,12 +217,11 @@ class weiboLogin:
                 originalShowTime=timeCon2['title']
                 originalSaveTime=timeCon2['date']
 
-                # print userid,username, showtime, saveTime,weiboLink
+                print userid,username, showtime, saveTime,weiboLink
                 linkList=weiboLinkList()
                 tempNode=weiboNode(id=userid,name=username,link=weiboLink)
                 tempNode.set_showTime(showtime=showtime)
                 tempNode.set_unixTimeStamp(saveTime)
-
 
 
                 weiboParentArray=html.find_all(attrs={'extra-data':'type=atname'})
@@ -234,6 +237,7 @@ class weiboLogin:
 
 
 wb=weiboLogin()
+# wb.get_login()
 wb.get_user('http://weibo.com/u/3627189164?profile_ftype=1&is_all=1#_0')
 
 
