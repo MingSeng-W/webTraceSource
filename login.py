@@ -187,8 +187,8 @@ class weiboLogin:
 
             temp=f1.read()
 
-            html=bs4.BeautifulSoup(temp,'lxml')
-
+            html=bs4.BeautifulSoup(temp,'lxml',from_encoding="utf-8")
+            print html
             repost_list=html.find_all(minfo=True)
             return repost_list
     def get_text(self,html):
