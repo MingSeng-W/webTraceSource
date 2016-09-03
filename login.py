@@ -19,11 +19,10 @@ from dataStore import weiboLinkList
 from dataStore import weiboNode
 
 
-
-
 class weiboLogin:
     header = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'}
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',
+    'Cookie':'_T_WM=921d1ec11563b9afbf3ee4b2cf74d20b; WEIBOCN_FROM=page_1004062812335943_profile; ALF=1475483708; SCF=AvT6HCtAMdOj-c5qkVuiYsW5iilNltQh3db0hjO7i625C9Bz-SANrzU3iXo3gHwaBVv27vcf9rqEujv7jSm-Gzk.; SUB=_2A256zv0EDeTxGeNL7FUZ-CfJzT2IHXVWMINMrDV6PUJbktBeLWqskW0dWXcKG7NUc4iONSJ-bD2Dn1BYVQ..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5MINdBKrimGBVg4AxBhZ3J5JpX5o2p5NHD95QfSKMN1hn4SKqpWs4Dqcjpi--fi-2Ei-2Ri--4iK.fiKLhi--fiK.fi-2ci--fiK.fi-2ci--fiK.fi-2cTK57e7tt; SUHB=0wnFlgOb05XDvk; SSOLoginState=1472892244'}
     is_find=False
     def get_page(self):
         url = 'http://login.weibo.cn/login/'
@@ -45,7 +44,6 @@ class weiboLogin:
                 print  e.reason
             elif hasattr(e, 'code'):
                 print e.code
-
 
 
     def get_account(self):
