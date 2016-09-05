@@ -56,9 +56,11 @@ class weiboCrawlser:
             html =bs4.BeautifulSoup(temp,'lxml',from_encoding="utf-8")
         return  html
 
-    def getpage(self,flag,page,filename):
+    def getpage(self,flag,page,filename,time):
         if flag==0:
             url = 'http://s.weibo.com/weibo/' + self.keyword + '&scope=ori&suball=1'
+        elif flag==8:
+            url = 'http://s.weibo.com/weibo/' + self.keyword + '&scope=ori&suball=1&page=' + page+'&timescope=custom::'+time
         else:
             url = 'http://s.weibo.com/weibo/' + self.keyword + '&scope=ori&suball=1&page='+page
         req = urllib2.Request(url=url, headers=self.header)
@@ -71,11 +73,11 @@ class weiboCrawlser:
                 s = r.replace("\/", "/")
                 f.write(s)
 
-    def getfirstpage(self):
+    def getfirstpage(self,time):
         self.getpage(0,0,'fisrtpage.html')
 
-    def getTotalPageNum(self):
-            self.getfirstpage()
+    def getTotalPageNum(self,time):
+            self.getfirstpage(time)
             html = self.getBS4Obj('fisrtpage.html')
             totalpage=1
             try:
@@ -106,32 +108,32 @@ class weiboCrawlser:
         self.connectMysql(username=name, link=link, time=mytime, date=date, weibotext=text)
 
     def getFirstTime(self, totalpage,filename):
-        temptime=''
-        tmepUnix=''
         weiboAry=self.getweiboPageAry(totalpage,filename)
         length=len(weiboAry)-1
         weibocon=weiboAry[length]
         temptime=weibocon['title']
-        tmepUnix=weibocon['date']
-        return temptime,tmepUnix
-    def judgePage(self,totalpage):
+        tempUnix=weibocon['date']
+        return temptime,tempUnix
 
 
     def getPerson(self):
+            flag=1
+            temptime = ''
+            tmepUnix = ''
             totalpage=str(self.getTotalPageNum())
             totalpagetemp=int(totalpage)
-            print "totalpage",totalpage
-            if totalpage
-            for i in range(1,totalpagetemp+1):
-                self.getpage(1,str(i),'originalpage.html')
-                html=self.getBS4Obj('originalpage.html')
-                weiboconAry=html.find_all(attrs={'class':'WB_cardwrap S_bg2 clearfix'})
-                length=len(weiboconAry)
-                for k in range(0,length):
-                        weiboCon=weiboconAry[k]
-                        self.getWeiboInfo(weiboCon)
-                print "finish page",i
-                time.sleep(10)
+            while flag==1:
+                temptime, tempUnix = self.getFirstTime(totalpage, 'originalpage.html')
+                # temptime 需要做进一步处理
+                if totalpagetemp==50:
+                    totalpagetemp=self.getTotalPageNum(temptime)
+                    flag=1
+                else:
+                    flag=0
+            weiboList=self.getweiboPageAry(totalpagetemp,'originalpage.html')
+            lenght=len(weiboList)-1
+            self.getWeiboInfo(weiboList[lenght])
+
 
 
 
