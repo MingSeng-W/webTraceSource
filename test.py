@@ -119,11 +119,11 @@ class weiboCrawlser:
             name, text, time, date, link = self.getPersonInfo(weibo)
             self.connectMysql(myindex=self.itemIndex,username=name, link=link, time=time, date=date, weibotext=text)
             self.itemIndex=self.itemIndex+1
-            print
+
 
 
 wb = weiboCrawlser(keyword='zv事件')
-wb.getFirstPerson()
+wb.getPerson()
 # for i in range(1, 7):
 #     wb.test(i,keyword)
 #     time.sleep(20)
