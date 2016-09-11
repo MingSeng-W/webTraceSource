@@ -24,7 +24,6 @@ class weiboCrawlser:
         self.keyword=keyword
         self.itemIndex=0
 
-
     def connectMysql(self,username,link,weibotext,time,date,myindex):
         config = {
             'user': 'root',
@@ -109,10 +108,14 @@ class weiboCrawlser:
 
     def getPerson(self):
             totalpage=str(self.getTotalPageNum())
-            self.getpage(1,totalpage,'fisrtpage.html')
-            weiboAry=self.getWeiboAry('fisrtpage.html')
-            length=len(weiboAry)
-            self.getEveryOne(weiboAry=weiboAry)
+            totalpageTemp=int(totalpage)+1
+            for i in range(1,totalpageTemp):
+                self.getpage(1,str(i),'fisrtpage.html')
+                weiboAry=self.getWeiboAry('fisrtpage.html')
+                length=len(weiboAry)
+                self.getEveryOne(weiboAry=weiboAry)
+                print "downloading page ",i
+                time.sleep(10)
 
     def getEveryOne(self,weiboAry):
         for weibo in weiboAry:
@@ -124,8 +127,5 @@ class weiboCrawlser:
 
 wb = weiboCrawlser(keyword='zv事件')
 wb.getPerson()
-# for i in range(1, 7):
-#     wb.test(i,keyword)
-#     time.sleep(20)
-# print 'finish all'
+
 
