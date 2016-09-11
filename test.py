@@ -16,14 +16,15 @@ class weiboCrawlser:
     urllib2.install_opener(opener)
     header = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',
-        'Cookie':'SINAGLOBAL=2580452964109.3633.1468546273913; _s_tentry=www.doc88.com; TC-Page-G0=9183dd4bc08eff0c7e422b0d2f4eeaec; Apache=5174620901646.758.1472833693191; ULV=1472833693197:5:1:1:5174620901646.758.1472833693191:1471356725919; TC-Ugrow-G0=e66b2e50a7e7f417f6cc12eec600f517; TC-V5-G0=1e4d14527a0d458a29b1435fb7d41cc3; login_sid_t=33ce6566732e1ba914cfaa364629f553; YF-Ugrow-G0=5b31332af1361e117ff29bb32e4d8439; YF-V5-G0=a5a264208a5b5a42590274f52e6c7304; YF-Page-G0=416186e6974c7d5349e42861f3303251; un=15025019730; UOR=www.micmiu.com,widget.weibo.com,login.sina.com.cn; SCF=AvT6HCtAMdOj-c5qkVuiYsW5iilNltQh3db0hjO7i625vWzLW1imdDWEXEN7EseMy549ayrBfg5NnhACn2gwT3E.; SUB=_2A256z4lGDeTxGeNL7FUZ-CfJzT2IHXVZvP2OrDV8PUNbmtBeLXWikW9Y-RlzQQMLo1M4csiverelxsWFsA..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5MINdBKrimGBVg4AxBhZ3J5JpX5KzhUgL.Fo-fS0MR1h.fSo22dJLoI02LxK-LBKzLBKnLxK.L1K-L1-eLxK-L1K-LBKqLxK-L1K-LBKqLxK-L1K-LBKq_eh50; SUHB=0ftZjw-62RxhjA; ALF=1504521366; SSOLoginState=1472985366; wvr=6'
+    'Cookie':'SINAGLOBAL=2580452964109.3633.1468546273913; _s_tentry=www.doc88.com; TC-Page-G0=9183dd4bc08eff0c7e422b0d2f4eeaec; Apache=5174620901646.758.1472833693191; ULV=1472833693197:5:1:1:5174620901646.758.1472833693191:1471356725919; TC-Ugrow-G0=e66b2e50a7e7f417f6cc12eec600f517; TC-V5-G0=1e4d14527a0d458a29b1435fb7d41cc3; login_sid_t=33ce6566732e1ba914cfaa364629f553; YF-Ugrow-G0=5b31332af1361e117ff29bb32e4d8439; YF-V5-G0=a5a264208a5b5a42590274f52e6c7304; YF-Page-G0=416186e6974c7d5349e42861f3303251; un=15025019730; wvr=6; SSOLoginState=1472992590; ULOGIN_IMG=14730046003746; SCF=AvT6HCtAMdOj-c5qkVuiYsW5iilNltQh3db0hjO7i625DzwgGKrfvY-WZWP3lxj3Lk81VVVw0AI1ukCUFCyTMns.; SUB=_2A25614srDeTxGeNL7FUZ-CfJzT2IHXVZpPvjrDV8PUJbmtBeLVLlkW88fu29zcQ1vlUqO_0XK3Dw8wkIHg..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5MINdBKrimGBVg4AxBhZ3J5JpX5o2p5NHD95QfSKMN1hn4SKqpWs4Dqcjpi--fi-2Ei-2Ri--4iK.fiKLhi--fiK.fi-2ci--fiK.fi-2ci--fiK.fi-2cTK57e7tt; SUHB=0tKaieLlJkxMtT; ALF=1505043816; UOR=www.micmiu.com,widget.weibo.com,www.baidu.com'
     }
 
     def __init__(self,keyword):
         self.keyword=keyword
+        self.itemIndex=0
 
 
-    def connectMysql(self,username,link,weibotext,time,date):
+    def connectMysql(self,username,link,weibotext,time,date,myindex):
         config = {
             'user': 'root',
             'password': '',
@@ -34,13 +35,14 @@ class weiboCrawlser:
         conn = mysql.connector.connect(**config)
         cursor = conn.cursor()
         add_user = (
-        "INSERT INTO wieboid(username,link,weibotext,time,date) VALUES(%(username)s,%(link)s,%(weibotext)s,%(time)s,%(date)s)")
+        "INSERT INTO user(myindex,username,weibotext,time,date,link) VALUES(%(myindex)s,%(username)s,%(weibotext)s,%(time)s,%(date)s,%(link)s)")
         data_user = {
-            'link': link,
+           'myindex':myindex,
             'username': username,
             'weibotext': weibotext,
             'time': time,
-            'date':date
+            'date':date,
+            'link': link
         }
 
         cursor.execute(add_user, data_user)
@@ -56,7 +58,7 @@ class weiboCrawlser:
 
     def getpage(self,flag,page,filename):
         if flag==0:
-            url = 'http://s.weibo.com/weibo/' + self.keyword + '&scope=ori&suball=1'
+            url = 'http://s.weibo.com/weibo/' + self.keyword + '&scope=ori&suball=1&Refer=g'
         else:
             url = 'http://s.weibo.com/weibo/' + self.keyword + '&scope=ori&suball=1&page='+page
         req = urllib2.Request(url=url, headers=self.header)
@@ -113,20 +115,29 @@ class weiboCrawlser:
                     pass
             return  totalpage
 
+    def getweiboCon(self,filename):
+        html = self.getBS4Obj(filename=filename)
+        weiboconAry = html.find_all(attrs={'class': 'WB_cardwrap S_bg2 clearfix'})
+        last = len(weiboconAry) - 1
+        weiboCon = weiboconAry[last]
+        return weiboCon
+
+    def getPersonInfo(self,weiboCon):
+        text = weiboCon.find('p', attrs={'class': 'comment_txt'}).text
+        temp = weiboCon.find(attrs={'class': 'face'}).find('a')
+        name = temp['title']
+        link = temp['href']
+        timeTemp = weiboCon.find(attrs={'class': 'feed_from W_textb'}).find('a')
+        time = timeTemp['title']
+        date = timeTemp['date']
+        return name,text,time,date,link
+
+
     def getFirstPerson(self):
             totalpage=str(self.getTotalPageNum())
-            self.getpage(1,totalpage,'originalpage.html')
-            html=self.getBS4Obj('originalpage.html')
-            weiboconAry=html.find_all(attrs={'class':'WB_cardwrap S_bg2 clearfix'})
-            last=len(weiboconAry)-1
-            weiboCon=weiboconAry[last]
-            text = weiboCon.find('p', attrs={'class':'comment_txt'}).text
-            temp=weiboCon.find(attrs={'class':'face'}).find('a')
-            name=temp['title']
-            link=temp['href']
-            timeTemp=weiboCon.find(attrs={'class':'feed_from W_textb'}).find('a')
-            time=timeTemp['title']
-            date=timeTemp['date']
+            self.getpage(1,totalpage,'fisrtpage.html')
+            weiboCon=self.getweiboCon('fisrtpage.html')
+            name,text,time,date,link=self.getPersonInfo(weiboCon)
             self.connectMysql(username=name,link=link,time=time,date=date,weibotext=text)
 
 
@@ -135,34 +146,9 @@ class weiboCrawlser:
 
 
 
-def connectMysql(username,userid,weibotext,weiboid):
-    config={
-        'user':'root',
-        'password':'',
-        'host':'localhost',
-        'port':'3306',
-        'database':'weibostore'
-    }
-    conn=mysql.connector.connect(**config)
-    cursor=conn.cursor()
-    add_user=("INSERT INTO user(userid,username,weiboid,weibocontent) VALUES(%(userid)s,%(username)s,%(weiboid)s,%(weibocontent)s)")
-    data_user={
-        'userid':userid,
-        'username':username,
-        'weiboid':weiboid,
-        'weibocontent':weibotext
-    }
-
-    cursor.execute(add_user,data_user)
-    conn.commit()
-    result_set=cursor.fetchone()
-    print result_set
-    cursor.close()
-    conn.close()
 
 
-keyword=raw_input("please in put the keyword:")
-wb = weiboCrawlser(keyword=keyword)
+wb = weiboCrawlser(keyword='zv事件')
 wb.getFirstPerson()
 # for i in range(1, 7):
 #     wb.test(i,keyword)
