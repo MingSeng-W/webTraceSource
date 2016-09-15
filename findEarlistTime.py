@@ -178,7 +178,7 @@ class weiboCrawlser:
 
 
 
-wb = weiboCrawlser(keyword='10-100元梁静茹演唱会')
+wb = weiboCrawlser(keyword='成都将申报撤销郫县')
 print wb.getStartTime()
 
 
