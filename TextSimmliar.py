@@ -10,12 +10,16 @@ class TextSimlar(object):
     def getResult(self,sentence,sentence2):
         sentence=self.prepare(sentence)
         sentence2=self.prepare(sentence2)
-        tags2=jieba.lcut_for_search(sentence)
-        seg=3.674
-        topk1=int((len(sentence)/3)/seg)
-        topk2=int(len(sentence2)/3/seg)
-        tags=jieba.analyse.extract_tags(sentence=sentence,topK=topk1,withWeight=False,allowPOS=())
-        tags2=jieba.analyse.extract_tags(sentence=sentence2,topK=topk2,withWeight=False,allowPOS=())
+        print sentence2
+        print sentence
+        tags=jieba.lcut(sentence,False)
+        tags2=jieba.lcut(sentence2,False)
+        # seg=3.674
+        # topk1=int((len(sentence)/3)/seg)
+        # topk2=int(len(sentence2)/3/seg)
+        #
+        # tags=jieba.analyse.extract_tags(sentence=sentence,topK=topk1,withWeight=False,allowPOS=())
+        # tags2=jieba.analyse.extract_tags(sentence=sentence2,topK=topk2,withWeight=False,allowPOS=())
         # 集合求交集
         diff=list(set(tags2).intersection((set(tags))))
         k= len(diff)
@@ -27,7 +31,6 @@ class TextSimlar(object):
         return result
 
     def getSearchWord(self,sentence):
-
         result=jieba.analyse.extract_tags(sentence=sentence,topK=4)
         result=" ".join(result)
         return result
@@ -49,6 +52,26 @@ class TextSimlar(object):
         sentence=self.replaceToken('；',sentence)
         sentence=self.replaceToken('http',sentence)
         sentence=self.replaceToken('cn',sentence)
+        sentence=self.replaceToken('//',sentence)
+        sentence=self.replaceToken("〗",sentence)
+        sentence=self.replaceToken("〖",sentence)
+        sentence=self.replaceToken("？",sentence)
+        sentence=self.replaceToken(" |",sentence)
+        sentence=self.replaceToken("@",sentence)
+        sentence=self.replaceToken("①",sentence)
+        sentence=self.replaceToken("②",sentence)
+        sentence=self.replaceToken("③",sentence)
+        sentence=self.replaceToken("④",sentence)
+        sentence=self.replaceToken("⑤",sentence)
+        sentence=self.replaceToken("《",sentence)
+        sentence=self.replaceToken("》",sentence)
+        sentence=self.replaceToken("",sentence)
+        sentence=self.replaceToken("+",sentence)
+        sentence=self.replaceToken("-",sentence)
+        sentence=self.replaceToken("*",sentence)
+        sentence=self.replaceToken("/",sentence)
+        sentence=self.replaceToken("『",sentence)
+        sentence=self.replaceToken("』",sentence)
         return sentence
 
     def replaceToken(self,token,sentence):
@@ -56,9 +79,6 @@ class TextSimlar(object):
         return sentence
 
 # print test.getSearchWord("")
-
-
-
 
 # 关于文本相似度的想法:
 # 1.提取关键词,然后放入list里面对其进行对比
