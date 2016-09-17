@@ -3,32 +3,59 @@
 from __future__ import division
 import jieba
 import jieba.analyse
-sentence="最担心的事情发生了：男子手机掉厕所伸手去掏 手卡厕所一整夜[doge]】14日早上6点许，惠州市消防员接到报警称，一居民楼有人被困厕所。被困人说，自己半夜2点多起来上厕所，不小心手机就掉进了厕所，因为家里没其它人，就被卡了一晚上，幸好早上邻居醒来听到了他的呼救声，才帮忙报警。最终消防员将厕所盆破拆，才将人救出。"
-sentence2="【最担心的事情发生了：男子手机掉厕所伸手去掏 手卡厕所一整夜[doge]】14日早上6点许，惠州市消防员接到报警称，一居民楼有人被困厕所。被困人说，自己半夜2点多起来上厕所，不小心手机就掉进了厕所，因为家里没其它人，就被卡了一晚上，幸好早上邻居醒来听到了他的呼救声，才帮忙报警。最终消防员将厕所盆破拆，才将人救出"
-tags2=jieba.lcut_for_search(sentence)
-seg=3.674
-topk1=int((len(sentence)/3)/seg)
-topk2=int(len(sentence2)/3/seg)
-tags=jieba.analyse.extract_tags(sentence=sentence,topK=topk1,withWeight=False,allowPOS=())
-tags3=jieba.analyse.extract_tags(sentence=sentence2,topK=topk2,withWeight=False,allowPOS=())
-mystr=""
+import re
 
+class TextSimlar(object):
 
-# print int(len(sentence)/3)
-print " ".join(tags)
-print " ".join(tags3)
-k=0
-print (len(set(tags)))
-diff=list(set(tags3).intersection((set(tags))))
-k= len(diff)
-print k
+    def getResult(self,sentence,sentence2):
+        sentence=self.prepare(sentence)
+        sentence2=self.prepare(sentence2)
+        tags2=jieba.lcut_for_search(sentence)
+        seg=3.674
+        topk1=int((len(sentence)/3)/seg)
+        topk2=int(len(sentence2)/3/seg)
+        tags=jieba.analyse.extract_tags(sentence=sentence,topK=topk1,withWeight=False,allowPOS=())
+        tags2=jieba.analyse.extract_tags(sentence=sentence2,topK=topk2,withWeight=False,allowPOS=())
+        # 集合求交集
+        diff=list(set(tags2).intersection((set(tags))))
+        k= len(diff)
+        len1=len(set(tags))
+        len2=len(set(tags2))
+        # 倍数乘积
+        myfloat=(len1)/(len2)
+        result=(k/len1)*myfloat*100
+        return result
 
-len1=len(set(tags))
-len2=len(set(tags3))
-myfloat=(len1)/(len2)
-result=(k/len1)*myfloat*100
+    def getSearchWord(self,sentence):
 
-print "%.2f%%"%result
+        result=jieba.analyse.extract_tags(sentence=sentence,topK=4)
+        result=" ".join(result)
+        return result
+
+    def prepare(self,sentence):
+        sentence=self.replaceToken("，",sentence)
+        sentence = self.replaceToken("……", sentence)
+        sentence=self.replaceToken("。",sentence)
+        sentence=self.replaceToken("：",sentence)
+        sentence=self.replaceToken("（",sentence)
+        sentence=self.replaceToken("）",sentence)
+        sentence=self.replaceToken("【",sentence)
+        sentence=self.replaceToken("】",sentence)
+        sentence=self.replaceToken("！",sentence)
+        sentence=self.replaceToken('"',sentence)
+        sentence=self.replaceToken('[',sentence)
+        sentence=self.replaceToken(']',sentence)
+        sentence=self.replaceToken('#',sentence)
+        sentence=self.replaceToken('；',sentence)
+        sentence=self.replaceToken('http',sentence)
+        sentence=self.replaceToken('cn',sentence)
+        return sentence
+
+    def replaceToken(self,token,sentence):
+        return sentence.replace(token,"")
+        return sentence
+
+# print test.getSearchWord("")
 
 
 

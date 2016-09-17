@@ -1,0 +1,865 @@
+{"pid":"pl_common_searchTop","js":["apps/search_v6/js/pl/common/searchTop.js?version=20160909103000"],"css":[],"html":"<div class="search_head_formbox">
+ <div class="search_logo"><a suda-data="key=tblog_search_weibo&value=weibo_logo" href="/?Refer=STopic_icon" class="logo_img"></a></div>
+ <!-- <ul class="formbox_tab clearfix formbox_tab2" node-type="searchItems"> -->
+ <ul class="formbox_tab clearfix formbox_tab2" node-type="searchItems">
+	<li>
+	 <a action-type="searchItem" suda-data="key=tblog_search_weibo&value=weibo_weibo" href="javascript:void(0);" class="cur">综合</a>
+	 	 <a action-type="searchItem" suda-data="key=tblog_search_weibo&value=weibo_user" href="/user/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&Refer=weibo_user" >找人</a>
+	 	 	 <a action-type="searchItem" suda-data="key=tblog_search_weibo&value=weibo_pic" href="/pic/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&Refer=weibo_pic" >图片</a>
+	 <a action-type="searchItem" suda-data="key=tblog_search_weibo&value=weibo_interest" href="/apps/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&Refer=weibo_apps" >兴趣主页</a>	 	 
+	 	</li>
+ </ul>
+ <!-- search_input -->
+ <div class="search_input clearfix">
+  <div class="search_input_wrap">
+ <div class="searchBtn_box"><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA" class="searchBtn" node-type="submit" suda-data="key=tblog_search_weibo&value=weibo_search">搜索</a></div>
+ <div class="searchInp_box">
+  <div class="searchInp_auto">
+   <input class="searchInp_form" type="text" value="抵制肯德基" node-type="text" maxlength="40">
+  </div>
+ </div>
+  </div>
+ </div>
+ <!-- /search_input --> 
+</div>
+<div class="search_head_action">
+ <p class="action_txt">
+   <a href="javascript:void(0);" class="adv_settiong" node-type="advsearch" suda-data="key=tblog_search_weibo&value=weibo_profes">高级搜索</a>
+  <a href="/preferences" class="setting" target="_blank" suda-data="key=tblog_search_weibo&value=weibo_set">设置</a>
+ <a href="http://help.weibo.com/newtopic/search" target="_blank" suda-data="key=tblog_search_weibo&value=weibo_help" class="adv_settiong">帮助</a>
+ </p>
+</div>
+"}{"pid":"plc_main","js":["apps/search_v6/js/pl/common/unLogin.js?version=20160909103000","apps/search_v6/js/pl/common/loginBox.js?version=20160909103000"],"css":[],"html":"<div class="S_content clearfix">
+ <div class="S_content_l">
+  <div id="pl_common_pinyinerr"></div>
+  <div id="pl_weibo_shareres"></div>
+  <div id="pl_weibo_directtop" smartconf="type=1" class="clearfix"></div>
+ <div id="pl_weibo_filtertab"></div>
+  <div id="pl_weibo_direct"></div>
+  <div id="pl_weibo_relation"></div>
+  <div id="pl_common_bottomInput" style="display:none;"></div>
+  <div id="pl_gs_christmas2013" class="clearfix"></div>
+ </div>
+ <div class="S_content_r">
+ <!--  <div id="pl_weibo_race"></div> -->
+  <div id="pl_weibo_directright"></div>
+  <div id="pl_common_ad"></div>
+  <!-- <div id="pl_common_recommend"></div> -->
+  <div id="pl_common_shishi"></div>
+  <div id="pl_weibo_hotband"></div>
+  <div id="pl_common_ali"></div>
+  <div id="pl_common_subscribe"></div>
+  <div class="WB_cardwrap S_bg2"><div class="module_history" id="pl_common_searchHistory"></div></div>
+  <div id="pl_common_alisecond"></div>
+ </div>
+</div>"}{"pid":"pl_weibo_race","js":["apps/search_v6/js/pl/weibo/race.js?version=20160909103000"],"css":["appstyle/searchV45/css_v6/module/race_table.css?version=20160909103000"],"html":""}{"pid":"pl_weibo_directright","js":["apps/search_v6/js/pl/weibo/directright.js?version=20160909103000","apps/search_v6/js/pl/weibo/weblist.js?version=20160909103000","apps/search_v6/js/pl/weibo/directplayer.js?version=20160909103000"],"css":[],"html":"  
+"}{"pid":"pl_common_ad","js":[],"css":["appstyle/searchV45/css_v6/pl/pl_adwin.css?version=20160909103000"],"html":""}{"pid":"pl_weibo_filtertab","js":["apps/search_v6/js/pl/weibo/filtertab.js?version=20160909103000"],"css":["appstyle/searchV45/css_v6/pl/pl_tab.css?version=20160909103000"],"html":"<div class="WB_cardwrap S_bg2">
+<div class="search_tab search_tab_weibo clearfix">
+ <div class="basic_search clearfix">
+  <div class="tab_l">
+ <div class="tab_condition">
+    <span class="search_ctips">原创<a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&amp;page=28&amp;timescope=custom::2011-8-11-11" class="W_close_btn"></a></span>
+    <span class="search_ctips">2011-08-11 11时之前<a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&amp;scope=ori&amp;page=28" class="W_close_btn"></a></span>
+   </div>
+  </div>
+  <div class="tab_r">
+ <div class="search_option">
+  <a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA">返回</a><a href="javascript:void(0);" action-type="moreFactor" action-data="title=重新筛选">重新筛选</a>
+ </div>
+  </div>
+ </div>
+</div>
+</div>
+"}{"pid":"pl_common_shishi","js":[],"css":[],"html":""}{"pid":"pl_weibo_hotband","js":["apps/search_v6/js/pl/weibo/hotband.js?version=20160909103000"],"css":[],"html":"<div class="WB_cardwrap S_bg2">
+<div class="module_hotrank">
+	<div class="search_title_a">
+	<a href="/top/summary?cate=realtimehot" target="_blank" class="W_fr change" node-type="more" suda-data="key=tblog_search_weibo&value=weibo_hotspot_more">更多<em href="/top/summary?cate=realtimehot" target="_blank"
+		class="W_ficon ficon_arrow_right S_ficon">a</em></a>
+	<h4>
+		<span class="W_fb">实时热搜榜</span>
+  	</h4>
+	</div>
+ <div class="hotsearch_rank">
+  <ul class="hotsearch_rank_list W_texta">
+  <li class=" clearfix"> <span class="num top1">1.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">159万</span>
+  <a href="/weibo/%25E4%25B9%2594%25E4%25BB%25BB%25E6%25A2%2581%25E5%258F%2591%25E5%25B8%2583%25E4%25BC%259A&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">乔任梁发布会</a>
+  <i class="icon_txt icon_boom">爆</i><!-- <span class="top_new" style="background:#ffa800;">热</span> -->    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top2">2.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">54万</span>
+  <a href="/weibo/%25E4%25B9%2594%25E4%25BB%25BB%25E6%25A2%2581%25E6%25AD%25BB%25E4%25BA%25A1%25E8%25BD%25B0%25E5%258A%25A8%25E5%25A8%25B1%25E4%25B9%2590%25E5%259C%2588&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">乔任梁死亡轰动娱乐圈</a>
+  <i class="icon_txt icon_hot">热</i>    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top3">3.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">54万</span>
+  <a href="/weibo/%25E4%25B9%2594%25E4%25BB%25BB%25E6%25A2%2581%25E5%25A6%2588%25E5%25A6%2588&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">乔任梁妈妈</a>
+  <i class="icon_txt icon_hot">热</i>    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top">4.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">45万</span>
+  <a href="/weibo/%25E9%2599%2588%25E4%25B9%2594%25E6%2581%25A9&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">陈乔恩</a>
+  <i class="icon_txt icon_hot">热</i>    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top">5.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">43万</span>
+  <a href="/weibo/%25E4%25B8%25AD%25E5%259B%25BD%25E7%25B2%2589%25E4%25B8%259D%25E4%25B8%258D%25E8%25A6%2581%25E6%259D%25A5%25E6%2588%2591%25E5%25AE%25B6%25E4%25BA%2586&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">中国粉丝不要来我家了</a>
+  <i class="icon_txt icon_hot">热</i>    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top">6.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">42万</span>
+  <a href="/weibo/%25E5%25A7%259C%25E5%25A6%258D&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">姜妍</a>
+  <i class="icon_txt icon_hot">热</i>    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top">7.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">23万</span>
+  <a href="/weibo/%25E9%2599%2588%25E5%25BF%2597%25E6%2588%2590%2B%25E8%25AF%25B7%25E4%25BD%25A0%25E7%258E%25B0%25E8%25BA%25AB&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">陈志成 请你现身</a>
+  <i class="icon_txt icon_hot">热</i>    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top">8.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">22万</span>
+  <a href="/weibo/%25E8%25B5%25B5%25E4%25B8%25BD%25E9%25A2%2596&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">赵丽颖</a>
+  <i class="icon_txt icon_hot">热</i>    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top">9.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">20万</span>
+  <a href="/weibo/%25E5%25AE%25B6%25E6%259C%2589%25E5%2584%25BF%25E5%25A5%25B3%25E5%2588%259D%25E9%2595%25BF%25E6%2588%2590%25E5%25BC%2580%25E6%259C%25BA&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">家有儿女初长成开机</a>
+    </p>
+ </li>
+  <li class=" clearfix"> <span class="num top">10.</span>
+  <p class="top_content">
+  <span class="tip_nums W_textb W_fr">14万</span>
+  <a href="/weibo/%25E4%25B8%25AD%25E5%259B%25BD%25E4%25BA%25BA%25E4%25B8%258D%25E6%2584%25BF%25E7%25BB%2593%25E5%25A9%259A&Refer=STopic_top" suda-data="key=tblog_search_weibo&value=weibo_hotspot" class="W_texta">中国人不愿结婚</a>
+    </p>
+ </li>
+   </ul>
+ </div>
+</div>
+"}{"pid":"pl_common_subscribe","js":["apps/search_v6/js/pl/common/subscribe.js?version=20160909103000"],"css":[],"html":"<div class="WB_cardwrap S_bg2">
+<div class="pl_searchpub">
+  <div class="search_title_b">
+  <a href="javascript:void(0);" class="W_fr change W_btn_b6" action-type="add" action-data="from=weibo" suda-data="key=tblog_search_weibo&value=weibo_subscribe_add">订阅当前词</a>
+  <h4>
+  <span class="W_fb">我的订阅词</span>
+  </h4>
+  </div>
+ <div class="search_pub " style="display:none;">
+  <ul node-type="keywordList">
+   </ul>
+ </div>
+ <div class="noresult_sp clearfix" node-type="subscribeEmpty" >
+  <p>订阅常搜的词，随时跟踪动态!</p>
+  <p><a href="javascript:void(0);" action-type="add" action-data="from=weibo" suda-data="key=tblog_search_weibo&value=weibo_subscribe_add" class="W_texta">点击订阅当前词</a>试试吧。</p>
+ </div>
+</div>
+</div>
+"}{"pid":"pl_common_pinyinerr","js":[],"css":[],"html":""}{"pid":"pl_weibo_directtop","js":["apps/search_v6/js/pl/weibo/directtop.js?version=20160909103000","apps/search_v6/js/pl/weibo/review.js?version=20160909103000"],"css":["appstyle/searchV45/css_v6/pl/pl_interest.css?version=20160909103000","appstyle/searchV45/css_v6/layer/layer_remark.css?version=20160909103000"],"html":"<!-- ad_p_search.html -->
+<!-- /ad_p_search.html -->
+"}{"pid":"pl_weibo_direct","js":["apps/search_v6/js/pl/weibo/direct.js?version=20160909103000"],"css":["appstyle/searchV45/css_v6/pl/pl_interest.css?version=20160909103000"],"html":"<div class="search_feed">
+   <!-- 实时微博 -->
+    <div>
+    <div class="feed_lists W_texta" node-type="feed_list">
+   <!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="44141194" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=44141194"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=44141194&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/xiaowuxianggong?refer_flag=1001030103_" title="小无相功" target="_blank">
+	<img src="http://tva4.sinaimg.cn/crop.0.0.180.180.50/649151aejw1e8qgp5bmzyj2050050aa8.jpg" alt="小无相功" width="50" height="50" usercard="id=1687245230&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="小无相功" href="http://weibo.com/xiaowuxianggong?refer_flag=1001030103_" target="_blank" title="小无相功" usercard="id=1687245230&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		小无相功	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="小无相功">
+		老是想<em class="red">抵制肯德基</em>麦当劳，因为它们食物有激素可是在外边累了下雨天躲雨还是喜欢去，环境干净、没人干扰，中餐厅要是也有这么好我就彻底抵制了，呵呵
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1687245230/4hnjs?refer_flag=1001030103_" target="_blank" title="2010-04-01 16:32" date="1270110759000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2010-4-1 16:32</a> 来自 <a target="_blank" href="http://app.weibo.com/t/feed/7E4i6P" rel="nofollow">S60客户端</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1687245230/4hnjs&mid=44141194&name=小无相功&uid=1687245230&domain=xiaowuxianggong&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论</span></a></li>
+		<li><a title="赞" action-data="mid=44141194" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="29241091" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=29241091"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=29241091&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/kongxiangming?refer_flag=1001030103_" title="永无止境_YWZJ" target="_blank">
+	<img src="http://tva3.sinaimg.cn/crop.0.0.996.996.50/65a7fe9fjw8f5eawd8j0jj20ro0roq7c.jpg" alt="永无止境_YWZJ" width="50" height="50" usercard="id=1705508511&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="永无止境_YWZJ" href="http://weibo.com/kongxiangming?refer_flag=1001030103_" target="_blank" title="永无止境_YWZJ" usercard="id=1705508511&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		永无止境_YWZJ	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="永无止境_YWZJ">
+		洋快餐就是王八蛋，赚钱不缴税，给人吃长六条腿的鸡，你说混蛋不混蛋，所以为了你的健康，请大家坚决抵制洋快餐，把肯德基、麦当劳赶出中国去，它们是餐饮业中的渣滓！<img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/7c/angrya_org.gif" title="[怒]" alt="[怒]" type="face" />
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1705508511/2CM1R?refer_flag=1001030103_" target="_blank" title="2010-03-20 17:08" date="1269076120000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2010-3-20 17:08</a> 来自 <a target="_blank" href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1705508511/2CM1R&mid=29241091&name=永无止境_YWZJ&uid=1705508511&domain=kongxiangming&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论<em>1</em></span></a></li>
+		<li><a title="赞" action-data="mid=29241091" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="27800502" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=27800502"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=27800502&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/u/1713820011?refer_flag=1001030103_" title="Me-Xia节律o肖" target="_blank">
+	<img src="http://tva3.sinaimg.cn/crop.0.0.290.290.50/6626d16bjw1f5pty3d58zj2082082mx5.jpg" alt="Me-Xia节律o肖" width="50" height="50" usercard="id=1713820011&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="Me-Xia节律o肖" href="http://weibo.com/u/1713820011?refer_flag=1001030103_" target="_blank" title="Me-Xia节律o肖" usercard="id=1713820011&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		Me-Xia节律o肖	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="Me-Xia节律o肖">
+		什么叫变异，什么叫生命与尊重，有了肯德基，生活好滋味？看到它，你快乐吗？每人抵制一只鸡，强壮中国人
+		</p>
+		
+	<div class="WB_media_wrap clearfix" node-type="feed_list_media_prev">
+	
+	 	  	  <!-- 1张 -->
+	  <div class="media_box">
+	<ul class="WB_media_a WB_media_a_m1 clearfix">
+	<li>
+	  <img class="bigcursor" src="http://ss2.sinaimg.cn/thumbnail/6626d16bx8213bfc5f241&amp;690" action-type='feed_list_media_img' action-data="uid=1713820011&mid=27800502" 	    		suda-data="key=tblog_search_weibo&value=weibo_ss_page_pic"/><img style="left:39.5px;top:52px;display:none;" src="http://img.t.sinajs.cn/t4/style/images/common/loading.gif" class="loading_gif"/>
+	</li>
+	</ul>
+  </div>
+	  	  	 	</div>		<dl class="comment" style="display: none;"
+			node-type="feed_list_media_disp"></dl>
+	  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1713820011/2wJgy?refer_flag=1001030103_" target="_blank" title="2010-03-18 22:07" date="1268921248000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2010-3-18 22:07</a> 来自 <a target="_blank" href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1713820011/2wJgy&mid=27800502&name=Me-Xia节律o肖&uid=1713820011&domain=&pid=6626d16bx8213bfc5f241&amp;690&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em>1</em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论<em>3</em></span></a></li>
+		<li><a title="赞" action-data="mid=27800502" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="27783877" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=27783877"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=27783877&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/u/1713820011?refer_flag=1001030103_" title="Me-Xia节律o肖" target="_blank">
+	<img src="http://tva3.sinaimg.cn/crop.0.0.290.290.50/6626d16bjw1f5pty3d58zj2082082mx5.jpg" alt="Me-Xia节律o肖" width="50" height="50" usercard="id=1713820011&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="Me-Xia节律o肖" href="http://weibo.com/u/1713820011?refer_flag=1001030103_" target="_blank" title="Me-Xia节律o肖" usercard="id=1713820011&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		Me-Xia节律o肖	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="Me-Xia节律o肖">
+		看到过这些吗，肯德基的鸡吗？抵制第一期，主题，少吃一顿基鸡，强壮中国人
+		</p>
+		
+	<div class="WB_media_wrap clearfix" node-type="feed_list_media_prev">
+	
+	 	  	  <!-- 1张 -->
+	  <div class="media_box">
+	<ul class="WB_media_a WB_media_a_m1 clearfix">
+	<li>
+	  <img class="bigcursor" src="http://ss6.sinaimg.cn/thumbnail/6626d16bx821380905cd5&amp;690" action-type='feed_list_media_img' action-data="uid=1713820011&mid=27783877" 	    		suda-data="key=tblog_search_weibo&value=weibo_ss_page_pic"/><img style="left:39.5px;top:52px;display:none;" src="http://img.t.sinajs.cn/t4/style/images/common/loading.gif" class="loading_gif"/>
+	</li>
+	</ul>
+  </div>
+	  	  	 	</div>		<dl class="comment" style="display: none;"
+			node-type="feed_list_media_disp"></dl>
+	  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1713820011/2wEWp?refer_flag=1001030103_" target="_blank" title="2010-03-18 21:49" date="1268920186000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2010-3-18 21:49</a> 来自 <a target="_blank" href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1713820011/2wEWp&mid=27783877&name=Me-Xia节律o肖&uid=1713820011&domain=&pid=6626d16bx821380905cd5&amp;690&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论<em>1</em></span></a></li>
+		<li><a title="赞" action-data="mid=27783877" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="69075121" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=69075121"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=69075121&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/kongkong1980?refer_flag=1001030103_" title="空空1980_815" target="_blank">
+	<img src="http://tva2.sinaimg.cn/crop.0.0.180.180.50/5fe8fddfjw1e8qgp5bmzyj2050050aa8.jpg" alt="空空1980_815" width="50" height="50" usercard="id=1609104863&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="空空1980_815" href="http://weibo.com/kongkong1980?refer_flag=1001030103_" target="_blank" title="空空1980_815" usercard="id=1609104863&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		空空1980_815	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="空空1980_815">
+		为了爱国善良的人们抵制美国，他们聚集起来来到肯德基麦当劳门前挂起标语，城管的不干了，不过看架势挺大没敢管。政府知道了美其名曰非法集会，人民警察去了，看都是人民没法整，撤了。老板一看，啥也不说，找帮小弟把丫的都打跑了，以暴制暴挺有效啊！警察作用在变小啊！政府办不到的有大款呢！万万岁
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1609104863/6C4QV?refer_flag=1001030103_" target="_blank" title="2010-03-13 06:37" date="1268433449000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2010-3-13 06:37</a> 来自 <a target="_blank" href="http://app.weibo.com/t/feed/7E4i6P" rel="nofollow">S60客户端</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1609104863/6C4QV&mid=69075121&name=空空1980_815&uid=1609104863&domain=kongkong1980&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论</span></a></li>
+		<li><a title="赞" action-data="mid=69075121" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="67164483" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=67164483"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=67164483&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/u/1410126122?refer_flag=1001030103_" title="暗处微光" target="_blank">
+	<img src="http://tva3.sinaimg.cn/crop.0.0.180.180.50/540cd12ajw1e8qgp5bmzyj2050050aa8.jpg" alt="暗处微光" width="50" height="50" usercard="id=1410126122&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="暗处微光" href="http://weibo.com/u/1410126122?refer_flag=1001030103_" target="_blank" title="暗处微光" usercard="id=1410126122&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		暗处微光	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="暗处微光">
+		希望大家共同抵制美国产品，如麦当劳、肯德基、必胜客等。这些产品都可能含有转基因。
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1410126122/6u3Ob?refer_flag=1001030103_" target="_blank" title="2010-03-11 10:14" date="1268273655000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2010-3-11 10:14</a> 来自 <a target="_blank" href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1410126122/6u3Ob&mid=67164483&name=暗处微光&uid=1410126122&domain=&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论</span></a></li>
+		<li><a title="赞" action-data="mid=67164483" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="50154088" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=50154088"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=50154088&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/caitingru?refer_flag=1001030103_" title="蔡廷如" target="_blank">
+	<img src="http://tva4.sinaimg.cn/crop.60.0.360.360.50/502b9837jw8eacilc5lrzj20dc0a0t9e.jpg" alt="蔡廷如" width="50" height="50" usercard="id=1345034295&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="蔡廷如" href="http://weibo.com/caitingru?refer_flag=1001030103_" target="_blank" title="蔡廷如" usercard="id=1345034295&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		蔡廷如	    <a target="_blank" href="http://verified.weibo.com/verify" title= "微博个人认证 " alt="微博个人认证 " class="approve"></a><a href="http://vip.weibo.com/personal?from=search" target="_blank" title="微博会员"><i class="W_icon ico_member3"></i></a></a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="蔡廷如">
+		某茶叶集团老总曾是抵制洋货之前锋,某日错过午餐供应,独自一人进肯德基,要一汉堡一蛋挞加一圣代冰激凌果腹。汉堡包装上赫然印有“茶犬”二字,初忿然,继而色渐平静,饭后把包装展开贴在店门玻璃上,大笑三声而去。
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1345034295/50E5i?refer_flag=1001030103_" target="_blank" title="2010-02-16 15:35" date="1266305758000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2010-2-16 15:35</a> 来自 <a target="_blank" href="http://app.weibo.com/t/feed/225Ax3" rel="nofollow">博客挂件</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1345034295/50E5i&mid=50154088&name=蔡廷如&uid=1345034295&domain=caitingru&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论</span></a></li>
+		<li><a title="赞" action-data="mid=50154088" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="15376669" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=15376669"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=15376669&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/u/1666410181?refer_flag=1001030103_" title="温暖相思熊" target="_blank">
+	<img src="http://tva1.sinaimg.cn/crop.0.0.180.180.50/635366c5jw1e8qgp5bmzyj2050050aa8.jpg" alt="温暖相思熊" width="50" height="50" usercard="id=1666410181&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="温暖相思熊" href="http://weibo.com/u/1666410181?refer_flag=1001030103_" target="_blank" title="温暖相思熊" usercard="id=1666410181&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		温暖相思熊	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="温暖相思熊">
+		肯德基的蛋挞非常难吃，又油又甜，吃后非常腻，而且不健康，真正的垃圾食品，真不知道别人怎么喜欢吃，在中国开那么多分店，钱就被人家赚走了，健康也被侵略了，人财两失！抵制一个！
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1666410181/1myIt?refer_flag=1001030103_" target="_blank" title="2009-12-17 09:10" date="1261012216000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2009-12-17 09:10</a> 来自 <a target="_blank" href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1666410181/1myIt&mid=15376669&name=温暖相思熊&uid=1666410181&domain=&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论</span></a></li>
+		<li><a title="赞" action-data="mid=15376669" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="4313327" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=4313327"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=4313327&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/u/1435215754?refer_flag=1001030103_" title="万年leo" target="_blank">
+	<img src="http://tva3.sinaimg.cn/crop.0.0.720.720.50/558ba78ajw8eshdialwtcj20k00k0ju1.jpg" alt="万年leo" width="50" height="50" usercard="id=1435215754&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="万年leo" href="http://weibo.com/u/1435215754?refer_flag=1001030103_" target="_blank" title="万年leo" usercard="id=1435215754&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		万年leo	    </a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="万年leo">
+		请大家联合起来坚决<em class="red">抵制肯德基</em>~~！越发得贵~越发得难吃~服务态度越发恶劣~！咱消费者再不给点颜色就盛不下丫的了！！
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1435215754/i65N?refer_flag=1001030103_" target="_blank" title="2009-10-22 16:40" date="1256200808000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2009-10-22 16:40</a> 来自 <a target="_blank" href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1435215754/i65N&mid=4313327&name=万年leo&uid=1435215754&domain=&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em></em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论</span></a></li>
+		<li><a title="赞" action-data="mid=4313327" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+<!--用微博创建时间判断微博是否被删除-->
+	<div class="WB_cardwrap S_bg2 clearfix" >
+		
+	  
+ <!-- 	 -->  
+	<!-- 聚合微博title -->
+		
+	<div mid="1808272" action-type="feed_list_item">
+	<div class="WB_feed_detail clearfix">
+		<!-- feed -->
+		<dl class="feed_lists W_texta">
+		<!--feed_detail-->
+		<div class="feed_list feed_list_new W_linecolor">
+	<div class="WB_screen W_fr">
+	<div class="screen_box">
+		<a href="javascript:void(0);" action-type="fl_menu" action-data="mid=1808272"><i class="W_ficon ficon_arrow_down S_ficon">c</i></a>
+		<div class="layer_menu_list" node-type="fl_menu_right">
+		<ul>
+			<li><a href="javascript:void(0);" suda-data="key=tblog_search_weibo&value=weibo_accuse" onclick="javascript:window.open('http://service.account.weibo.com/reportspam?rid=1808272&type=1&from=10501&url=&bottomnav=1&wvr=6', 'newwindow', 'height=700, width=550, toolbar =yes, menubar=no, scrollbars=yes, resizable=yes, location=no, status=no');" >举报</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+	<div class="face">
+	<a 	suda-data="key=tblog_search_weibo&value=weibo_ss_page_icon" 
+	href="http://weibo.com/chenxin?refer_flag=1001030103_" title="陈鑫" target="_blank">
+	<img src="http://tva4.sinaimg.cn/crop.0.0.180.180.50/3f393badjw1e8qgp5bmzyj2050050aa8.jpg" alt="陈鑫" width="50" height="50" usercard="id=1060715437&usercardkey=weibo_mp&refer_flag=1001030103_" class="W_face_radius"></a>
+	</div>
+	<div class="content clearfix" node-type="like">
+	<div class="feed_content wbcon">
+			<a class="W_texta W_fb" nick-name="陈鑫" href="http://weibo.com/chenxin?refer_flag=1001030103_" target="_blank" title="陈鑫" usercard="id=1060715437&usercardkey=weibo_mp&refer_flag=1001030103_"			suda-data="key=tblog_search_weibo&value=weibo_ss_page_name" class="name_txt W_fb">
+		陈鑫	    <a target="_blank" href="http://verified.weibo.com/verify" title= "微博个人认证 " alt="微博个人认证 " class="approve"></a></a>
+		
+		<p class="comment_txt" node-type="feed_list_content" nick-name="陈鑫">
+		美国总统奥巴马9月11日决定，对从对中国进口轮胎实施为期三年的惩罚性关税，第一年为35%，这是美国奥巴马政府对中国发起的首例特保调查的结果。 建议博友自发抵制美国在华企业：肯德基、麦当劳、沃尔玛、雪佛龙、通用电气……
+		</p>
+		
+		  	    </div>
+	<div class="feed_from W_textb">
+	  <a href="http://weibo.com/1060715437/7ApG?refer_flag=1001030103_" target="_blank" title="2009-09-27 11:47" date="1254023234000" class="W_textb" node-type="feed_list_item_date" 	  suda-data="key=tblog_search_weibo&value=weibo_ss_page_time" >2009-9-27 11:47</a> 来自 <a target="_blank" href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>	</div>
+	</div>
+		</div>
+		<!--/feed_detail-->
+  </dl>
+		<!-- /feed -->
+	
+	</div>
+	<!--feed_action-->
+	<div class="feed_action clearfix">
+		<!-- -->
+		<ul class="feed_action_info feed_action_row4">
+		<li><a href="javascript:void(0);" action-type="feed_list_favorite"  suda-data="key=tblog_search_weibo&value=weibo_ss_page_s"><span class="line S_line1">收藏</span></a></li>
+		<li><a href="javascript:void(0);" action-data='allowForward=1&url=http://weibo.com/1060715437/7ApG&mid=1808272&name=陈鑫&uid=1060715437&domain=chenxin&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_z_z' action-type="feed_list_forward" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_z"><span class="line S_line1">转发<em>3</em></span></a></li>
+		 <li><a href="javascript:void(0);" action-data='pageid=weibo&suda-data=key%3Dtblog_search_weibo%26value%3Dweibo_ss_page_p_p' action-type="feed_list_comment"
+		 		 suda-data="key=tblog_search_weibo&value=weibo_ss_page_p"><span class="line S_line1">评论<em>1</em></span></a></li>
+		<li><a title="赞" action-data="mid=1808272" action-type="feed_list_like" href="javascript:void(0);" 		suda-data="key=tblog_search_weibo&value=weibo_ss_page_zan"><span class="line S_line1"><i class="W_ico12 icon_praised_b"></i><em></em></span></a></li>
+		</ul>
+	</div>
+	<!--/feed_action-->
+	<!-- 信息单元Reply -->
+		<!-- 信息单元Reply -->
+	<!-- 好友转发去掉 2016/3/21-->
+	<div node-type="feed_list_repeat" class="WB_feed_repeat S_bg1" style="display:none;"></div>	</div>
+</div>
+    </div>
+    </div>
+   <!-- /实时微博 -->
+  <!-- 拆分微博 -->
+  <div class="WB_cardwrap S_bg2 relative">
+  <div class="W_pages" suda-data="key=tblog_search_weibo&value=weibo_page">
+  <a class="page prev S_txt1 S_line1" href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=27"suda-data='key=tblog_search_weibo&value=weibo_page'>上一页</a><span class="list"><div class="layer_menu_list W_scroll" style="display:none;" node-type="feed_list_page_morelist" action-type="feed_list_page_morelist"><ul><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=1"suda-data='key=tblog_search_weibo&value=weibo_page' >第1页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=2"suda-data='key=tblog_search_weibo&value=weibo_page' >第2页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=3"suda-data='key=tblog_search_weibo&value=weibo_page' >第3页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=4"suda-data='key=tblog_search_weibo&value=weibo_page' >第4页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=5"suda-data='key=tblog_search_weibo&value=weibo_page' >第5页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=6"suda-data='key=tblog_search_weibo&value=weibo_page' >第6页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=7"suda-data='key=tblog_search_weibo&value=weibo_page' >第7页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=8"suda-data='key=tblog_search_weibo&value=weibo_page' >第8页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=9"suda-data='key=tblog_search_weibo&value=weibo_page' >第9页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=10"suda-data='key=tblog_search_weibo&value=weibo_page' >第10页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=11"suda-data='key=tblog_search_weibo&value=weibo_page' >第11页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=12"suda-data='key=tblog_search_weibo&value=weibo_page' >第12页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=13"suda-data='key=tblog_search_weibo&value=weibo_page' >第13页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=14"suda-data='key=tblog_search_weibo&value=weibo_page' >第14页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=15"suda-data='key=tblog_search_weibo&value=weibo_page' >第15页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=16"suda-data='key=tblog_search_weibo&value=weibo_page' >第16页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=17"suda-data='key=tblog_search_weibo&value=weibo_page' >第17页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=18"suda-data='key=tblog_search_weibo&value=weibo_page' >第18页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=19"suda-data='key=tblog_search_weibo&value=weibo_page' >第19页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=20"suda-data='key=tblog_search_weibo&value=weibo_page' >第20页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=21"suda-data='key=tblog_search_weibo&value=weibo_page' >第21页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=22"suda-data='key=tblog_search_weibo&value=weibo_page' >第22页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=23"suda-data='key=tblog_search_weibo&value=weibo_page' >第23页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=24"suda-data='key=tblog_search_weibo&value=weibo_page' >第24页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=25"suda-data='key=tblog_search_weibo&value=weibo_page' >第25页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=26"suda-data='key=tblog_search_weibo&value=weibo_page' >第26页</a></li><li><a href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA&scope=ori&suball=1&timescope=custom::2011-8-11-11&page=27"suda-data='key=tblog_search_weibo&value=weibo_page' >第27页</a></li><li class="cur"><a href="javascript:void(0);">第28页</a></li></ul></div> <a href="javascript:void(0);" class="page S_txt1" action-type="feed_list_page_more">第28页<i class="W_ficon ficon_arrow_down S_ficon">c</i></a></span>
+ </div>
+   <!-- 未登录提示 -->
+  <!-- /未登录提示 --> 
+</div>
+</div>
+"}{"pid":"pl_weibo_relation","js":[],"css":[],"html":""}{"pid":"pl_common_bottomInput","js":["apps/search_v6/js/pl/common/bottomInput.js?version=20160909103000"],"css":[],"html":"<div class="bottom_wrap"> 
+ 	<div class="bottom_search clearfix">
+	<div class="search_input">
+		<div class="search_input_wrap">
+		<div class="searchBtn_box">
+	<a class="searchBtn" href="/weibo/%25E6%258A%25B5%25E5%2588%25B6%25E8%2582%25AF%25E5%25BE%25B7%25E5%259F%25BA" node-type="submit" suda-data="key=tblog_search_v4.1&value=weibo_search">搜索</a>
+		</div>
+		<div class="searchInp_box">
+	<div class="searchInp_auto">
+	<input type="text" class="searchInp_form" value="抵制肯德基" maxlength="40">
+	</div>
+		</div>
+		</div>
+	</div>
+	</div>
+  <!-- <div class="search_feedback">
+  <p>欢迎提交微博搜索使用反馈，请直接<a href="javascript:void(0);" suda-data="key=tblog_search_v4.1&value=weibo_suggest" node-type="suggest">发表意见</a>或您可以关注萌小搜<a href="http://weibo.com/wbsearch" suda-data="key=tblog_search_v4.1&value=weibo_xiaosou" title="欢迎调戏最萌官博屌丝~~">@微博搜索</a>获取搜索技巧。</p>
+ </div> -->
+</div>"}{"pid":"pl_common_searchHistory","js":["apps/search_v6/js/pl/common/searchHistory.js?version=20160909103000"],"css":["appstyle/searchV45/css_v6/pl/pl_history.css?version=20160909103000"],"html":""}{"pid":"pl_common_base","js":["apps/search_v6/js/pl/common/changeLanguage.js?version=20160909103000","apps/search_v6/js/pl/common/base.js?version=20160909103000"],"css":[],"html":""}{"pid":"plc_picturetag","js":[],"css":[],"html":"<!-- -->"}

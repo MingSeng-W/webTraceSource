@@ -17,7 +17,15 @@ class weiboCrawlser:
     index=1
     header = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',
-        'Cookie':'SINAGLOBAL=2580452964109.3633.1468546273913; _s_tentry=www.doc88.com; TC-Page-G0=9183dd4bc08eff0c7e422b0d2f4eeaec; Apache=5174620901646.758.1472833693191; ULV=1472833693197:5:1:1:5174620901646.758.1472833693191:1471356725919; TC-Ugrow-G0=e66b2e50a7e7f417f6cc12eec600f517; TC-V5-G0=1e4d14527a0d458a29b1435fb7d41cc3; login_sid_t=33ce6566732e1ba914cfaa364629f553; YF-Ugrow-G0=5b31332af1361e117ff29bb32e4d8439; YF-V5-G0=a5a264208a5b5a42590274f52e6c7304; YF-Page-G0=416186e6974c7d5349e42861f3303251; SSOLoginState=1472992590; ULOGIN_IMG=14735648788003; UOR=www.micmiu.com,widget.weibo.com,blog.sina.com.cn; WBStorage=86fb700cbf513258|undefined; SCF=AvT6HCtAMdOj-c5qkVuiYsW5iilNltQh3db0hjO7i625IMXIZaZNdIOze7TpK7pgyrlRjBWm_-WE0nezWQA1bT4.; SUB=_2A2560a5nDeTxGeNP7FcQ8yvJyj-IHXVZppivrDV8PUNbmtAKLXXDkW9PIF7E40Dhn5WbcQMzblF-aUYH-g..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WFnL1Xf6TWVe-5ZwiAl2ySh5JpX5K2hUgL.Fo-pS0-pe0-feKe2dJLoI08kPEH8SFHFxFHWeFH8SC-ReFHFBEH8SCHFxC-4SEH8Sb-RBbHWSCH8Sb-4BE-R1Hvk; SUHB=0ebtQ7K75EDsPR; ALF=1505169846; un=15025019730; wvr=6'
+        'Cookie':'SINAGLOBAL=2580452964109.3633.1468546273913; TC-Ugrow-G0=0149286e34b004ccf8a0b99657f15013; login_sid_t=a45730ec5784b903ccd5cf2b68f900b5; TC-V5-G0=f88ad6a0154aa03e3d2a393c93b76575; _s_tentry=-; Apache=7344403422873.24.1473897694479; ULV=1473897694486:6:2:1:7344403422873.24.1473897694479:1472833693197; TC-Page-G0=e2379342ceb6c9c8726a496a5565689e; wvr=6; SSOLoginState=1473932268; UOR=www.micmiu.com,widget.weibo.com,nav.uestc.edu.cn; YF-Ugrow-G0=1eba44dbebf62c27ae66e16d40e02964; YF-V5-G0=f59276155f879836eb028d7dcd01d03c; WBStorage=86fb700cbf513258|undefined; SCF=AvT6HCtAMdOj-c5qkVuiYsW5iilNltQh3db0hjO7i625Ux1KQTuM3GK_MLV983c5uhcPtv2OPLev6AmKqU3H9GM.; SUB=_2A2562WLlDeTxGeNL7FUZ-CfJzT2IHXVZr9MtrDV8PUNbmtBeLXP9kW-cQEsyWywHkvOO-rFK_UREfThubw..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5MINdBKrimGBVg4AxBhZ3J5JpX5K2hUgL.Fo-fS0MR1h.fSo22dJLoI02LxK-LBKzLBKnLxK.L1K-L1-eLxK-L1K-LBKqLxK-L1K-LBKqLxK-L1K-LBKq_eh50; SUHB=0BLYINmbub_KIo; ALF=1505642037; un=15520441791; YF-Page-G0=f70469e0b5607cacf38b47457e34254f'
+    }
+    header2={
+        'Cookie':'SINAGLOBAL=2580452964109.3633.1468546273913; TC-Ugrow-G0=0149286e34b004ccf8a0b99657f15013; login_sid_t=a45730ec5784b903ccd5cf2b68f900b5; TC-V5-G0=f88ad6a0154aa03e3d2a393c93b76575; _s_tentry=-; Apache=7344403422873.24.1473897694479; ULV=1473897694486:6:2:1:7344403422873.24.1473897694479:1472833693197; TC-Page-G0=e2379342ceb6c9c8726a496a5565689e; wvr=6; UOR=www.micmiu.com,widget.weibo.com,nav.uestc.edu.cn; YF-Ugrow-G0=1eba44dbebf62c27ae66e16d40e02964; YF-V5-G0=f59276155f879836eb028d7dcd01d03c; un=15520441791; YF-Page-G0=f70469e0b5607cacf38b47457e34254f; SCF=AvT6HCtAMdOj-c5qkVuiYsW5iilNltQh3db0hjO7i625NA7-P8n5eYntovkd_zp9j9krVopWlPjflDbCvv4EtwU.; SUHB=0idbegACJ55I2V; SSOLoginState=1474107087; SUB=_2A2562WafDeTxGeNH71UQ9SfOzTyIHXVWIgrXrDV8PUJbkNBeLUn5kW18hvsWvX11ERSGl1Gb-kmxxzc6mw..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5mrfxOUGAJ_1NSUcqGR8lz5JpX5oz75NHD95Qf1KBNeK-4eoq7Ws4DqcjAi--ciKn7iKL2i--RiK.4iK.pi--fi-isi-2Ni--ciKnXiKnpi--fi-z4i-zEi--Ri-20iKnEC-HHCBtt',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'
+    }
+    header3={
+        'Cookie':'SINAGLOBAL=2580452964109.3633.1468546273913; TC-Ugrow-G0=0149286e34b004ccf8a0b99657f15013; login_sid_t=a45730ec5784b903ccd5cf2b68f900b5; TC-V5-G0=f88ad6a0154aa03e3d2a393c93b76575; _s_tentry=-; Apache=7344403422873.24.1473897694479; ULV=1473897694486:6:2:1:7344403422873.24.1473897694479:1472833693197; TC-Page-G0=e2379342ceb6c9c8726a496a5565689e; wvr=6; UOR=www.micmiu.com,widget.weibo.com,nav.uestc.edu.cn; YF-Ugrow-G0=1eba44dbebf62c27ae66e16d40e02964; YF-V5-G0=f59276155f879836eb028d7dcd01d03c; un=15520441791; YF-Page-G0=f70469e0b5607cacf38b47457e34254f; SCF=AvT6HCtAMdOj-c5qkVuiYsW5iilNltQh3db0hjO7i625NA7-P8n5eYntovkd_zp9j9krVopWlPjflDbCvv4EtwU.; SUHB=0idbegACJ55I2V; SSOLoginState=1474107463; SUB=_2A2562WgWDeTxGeNH71oY-C_IyT-IHXVWIgherDV8PUJbkNBeLWLskW0nH_efcB8Y7D5YvYdc334ZkHqvqA..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W50ERu6w4LLzU3RxeqVMdFu5JpX5oz75NHD95Qf1KBR1KnpShz0Ws4Dqcjci--NiK.4i-i2i--NiKLWiK.4i--4i-zEiKLhi--RiKyWi-zpi--Ri-2XiK.Ei--Ri-zXi-8h',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36'
     }
 
     def __init__(self,keyword):
@@ -164,6 +172,7 @@ class weiboCrawlser:
                 weiboAry=self.getWeiboAry("middleTime.html")
                 lastIndex=len(weiboAry)-1
                 weiboTemp=weiboAry[lastIndex]
+
                 startTime=self.getWeiBoTime(weiboTemp)
                 if totalPage!=50:
                     flag=0
@@ -178,7 +187,8 @@ class weiboCrawlser:
 
 
 
-wb = weiboCrawlser(keyword='成都将申报撤销郫县')
+wb = weiboCrawlser(keyword='抵制肯德基')
+sampleWeiBo="【成都将申报撤销郫县 设立郫都区】中共成都市委十二届七次全会今日举行。全会审议并通过了《关于同意申报郫县撤县设区的决议》，同意申报撤销郫县，设立郫都区。（via@成都日报锦观）"
 print wb.getStartTime()
 
 
