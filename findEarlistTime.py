@@ -9,6 +9,7 @@ import urllib2
 import time
 import bs4
 import cookielib
+from tool import timeCaclulate
 class weiboCrawlser:
     cj = cookielib.LWPCookieJar()
     cookie_support = urllib2.HTTPCookieProcessor(cj)
@@ -57,6 +58,8 @@ class weiboCrawlser:
         conn.commit()
         cursor.close()
         conn.close()
+
+
 
     def getBS4Obj(self,filename):
         with open(filename, 'r') as f:
@@ -156,6 +159,8 @@ class weiboCrawlser:
         y,m,d,h=temp[0:4]
         return str(y)+'-'+str(m)+"-"+str(d)+"-"+str(h)
 
+
+
     def getStartTime(self):
         startTime=''
         totalPage=self.getTotalPageNum()
@@ -172,7 +177,6 @@ class weiboCrawlser:
                 weiboAry=self.getWeiboAry("middleTime.html")
                 lastIndex=len(weiboAry)-1
                 weiboTemp=weiboAry[lastIndex]
-
                 startTime=self.getWeiBoTime(weiboTemp)
                 if totalPage!=50:
                     flag=0
