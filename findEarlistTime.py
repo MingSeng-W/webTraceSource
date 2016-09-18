@@ -8,6 +8,7 @@ import time
 import bs4
 import cookielib
 from tool import timeCaclulate
+import tool
 import TextSimmliar
 import dateItem
 
@@ -19,11 +20,14 @@ class weiboCrawlser:
     urllib2.install_opener(opener)
     headerIndex = 0
 
-    def __init__(self, keyword,dataBaseName):
+    def __init__(self, keyword,dataBaseName,TextSimilarObj,sampleWeibo,keywordTemp):
         self.keyword = keyword
         self.index = dateItem.getDataBaseIndex(dataBaseName)
         self.pageIndex=1
         self.startTime=""
+        self.TextSimilarObj=TextSimilarObj
+        self.sampleWeibo=sampleWeibo
+        self.keywordTemp=keywordTemp
         self.headerDict={
             "header0": {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',
@@ -105,7 +109,11 @@ class weiboCrawlser:
             licon = divcon.find('ul').find_all('li')
             totalpage = len(licon)
         except:
-            pass
+            no_result_con=html.find(attrs={'class':'noresult_tit'})
+            text=no_result_con.get_text()
+            print text,"请减少关键词"
+            totalpage=0
+            os._exit()
         return totalpage
 
     def parseTotalPageHtml(self, filename):
@@ -134,17 +142,17 @@ class weiboCrawlser:
         date = timeTemp['date']
         return name, text, time, date, link
 
+
     def getWeiBoTime(self, weibo):
         timeTemp = weibo.find(attrs={'class': 'feed_from W_textb'}).find('a')
         time = timeTemp['title']
         return time
 
-    def getPerson(self,):
-        totalpage = str(self.getTotalPageNum())
-        totalpageTemp = int(totalpage) + 1
-
+    def getPerson(self,totalPage,timeArgs):
+        totalpageTemp = int(totalPage) + 1
         for i in range(1, totalpageTemp):
-            self.getpage(1, str(i), 'fisrtpage.html')
+            # self.getpage(1, str(i), 'fisrtpage.html')
+            self.getPageWithTime(page=str(i),time=self.handleTime(timeArgs),filename="fisrtpage.html")
             weiboAry = self.getWeiboAry('fisrtpage.html')
             length = len(weiboAry)
             self.getEveryOne(weiboAry=weiboAry)
@@ -162,7 +170,7 @@ class weiboCrawlser:
     def handleTime(self, startTime):
         temp = time.strptime(startTime, "%Y-%m-%d %H:%M")
         y, m, d, h = temp[0:4]
-        return str(y) + '-' + str(m) + "-" + str(d) + "-" + str(h)
+        return str(y) + '-' + str(m) + "-" + str(d) + "-" + str(h+1)
 
     def getStartTime(self):
         startTime = ''
@@ -185,15 +193,47 @@ class weiboCrawlser:
                     flag = 0
         self.startTime=startTime
 
+    def getAllInfo(self):
+        startTime =tool.timeSlace(tool.unix_dateTime(tool.currentTime()))
+        totalPage = self.getTotalPageNum()
+        # self.getPerson(totalPage,startTime)
+        flag = 1
+        self.getpage(1, totalPage, "fisrtpage.html")
+        weiboAry = self.getWeiboAry("fisrtpage.html")
+        lastIndex = len(weiboAry) - 1
+        startTime = self.getWeiBoTime(weiboAry[lastIndex])
+        if totalPage == 50:
+            while flag == 1:
+                self.getPageWithTime(1, self.handleTime(startTime), "fisrtpage.html")
+                totalPage = self.parseTotalPageHtml("fisrtpage.html")
+                self.getPerson(totalPage, startTime)
+                self.getPageWithTime(page=totalPage, time=self.handleTime(startTime), filename="fisrtpage.html")
+                weiboAry = self.getWeiboAry("fisrtpage.html")
+                lastIndex = len(weiboAry) - 1
+                weiboTemp = weiboAry[lastIndex]
+                startTime = self.getWeiBoTime(weiboTemp)
+                if totalPage != 50:
+                    flag = 0
+        self.startTime = startTime
+
     def getEveryOne(self, weiboAry):
         for weibo in weiboAry:
             name, text, time, date, link = self.getPersonInfo(weibo)
-            dateItem.connectMysql(myindex=self.index, username=name, link=link, time=time, date=date, weibotext=text,similar='10.0',topic=self.keyword)
+            text=text.encode("utf-8")
+            sim=self.TextSimilarObj.getResult(text,self.sampleWeibo)
+            dateItem.connectMysql(myindex=self.index, username=name, link=link, time=time, date=date, weibotext=text,similar=sim,topic=self.keywordTemp)
             self.index = self.index + 1
 
+topK=raw_input("请输入关键词数量(一般为3~4个):")
+TextSimilarObj=TextSimmliar.TextSimlar(int(topK))
+sampleWeibo="【乔任梁公司声明:现实残酷 一路走好】乔任梁经纪公司称有关乔任梁发布会将于今日召开，目前其经纪公司发布声明：“乔任梁于2016年9月16日晚与世长辞……过去的几年，去年在繁重的工作中，遇上外界种种对他不实的报道和重伤的话语后，他患上抑郁症……”"
+keyword=TextSimilarObj.getSearchWord(sampleWeibo)
+keywordTemp=keyword
+keyword=urllib.quote(keyword)
 
-wb = weiboCrawlser(keyword='赵薇事件',dataBaseName="user")
-wb.getPerson()
+wb = weiboCrawlser(keyword=keyword,keywordTemp=keywordTemp,dataBaseName="user",TextSimilarObj=TextSimilarObj,sampleWeibo=sampleWeibo)
+wb.getAllInfo()
+
 
 
 

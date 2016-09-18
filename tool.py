@@ -1,6 +1,6 @@
-# coidng:utf-8
+# coding:utf-8
 import time
-
+import urllib
 def timeCaclulate(UnixTime1):
     UnixTime1=dateTime_unixTime(UnixTime1)
     UnixTime2=currentTime()
@@ -9,8 +9,8 @@ def timeCaclulate(UnixTime1):
 
 def timeSlace(s):
     temp=time.strptime(s,"%Y-%m-%d %H:%M:%S")
-    Y,m,d,H=temp[0:4]
-    return Y,m,d,H
+    Y,m,d,H,M=temp[0:5]
+    return str(Y)+'-'+str(m)+'-'+str(d)+' '+str(H)+":"+str(M)
 
 def currentTime():
     return  int(time.time())

@@ -5,13 +5,15 @@ import jieba
 import jieba.analyse
 import re
 
+
 class TextSimlar(object):
+
+    def __init__(self,topk):
+        self.topK=topk
 
     def getResult(self,sentence,sentence2):
         sentence=self.prepare(sentence)
         sentence2=self.prepare(sentence2)
-        print sentence2
-        print sentence
         tags=jieba.lcut(sentence,False)
         tags2=jieba.lcut(sentence2,False)
         # seg=3.674
@@ -31,8 +33,10 @@ class TextSimlar(object):
         return result
 
     def getSearchWord(self,sentence):
-        result=jieba.analyse.extract_tags(sentence=sentence,topK=4)
+        result=jieba.analyse.extract_tags(sentence=sentence,topK=self.topK)
         result=" ".join(result)
+        result=result.encode("utf8")
+        print "关键词为:",result
         return result
 
     def prepare(self,sentence):
@@ -77,6 +81,10 @@ class TextSimlar(object):
     def replaceToken(self,token,sentence):
         return sentence.replace(token,"")
         return sentence
+
+
+
+
 
 # print test.getSearchWord("")
 
